@@ -550,7 +550,7 @@ namespace{
 				
                                 const DebugLoc &loc = BI->getDebugLoc();
 				if (!loc)
-					printf(" I don't have a !dgb tag\n");
+					errs() << " I don't have a !dgb tag\n";
 
                                 builder.SetInsertPoint( &(*BB), ++builder.GetInsertPoint() ); // insert after op	
                                 if (loc)
@@ -589,7 +589,7 @@ namespace{
 				
                                 const DebugLoc &loc = BI->getDebugLoc();
 				if (!loc)
-					printf(" I don't have a !dgb tag\n");
+					errs() << " I don't have a !dgb tag\n";
 
 			//	newInst->insertAfter( &(*BI));
 		
