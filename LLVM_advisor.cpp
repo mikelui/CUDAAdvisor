@@ -93,15 +93,15 @@ namespace{
 		Constant *hookFuncFCall;
 		Constant* hookFuncMallocEvent;
 
-            	hookFunc1 = M.getOrInsertFunction("print1", VoidTy, (Type*)0);
-            	hookFunc2 = M.getOrInsertFunction("print2", VoidTy, (Type*)0);
-		hookFunc3 = M.getOrInsertFunction("print3", VoidTy, Type::getInt32Ty(C),  NULL);
-		hookFunc4 = M.getOrInsertFunction("print4", VoidTy, Type::getInt64Ty(C),  NULL);
-		hookFuncEA = M.getOrInsertFunction("printea", VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
-		hookFuncRetMain = M.getOrInsertFunction("RetMain", VoidTy, (Type*)0 );
-		hookFuncString = M.getOrInsertFunction("takeString", VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
-		hookFuncFCall = M.getOrInsertFunction("callFunc", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C), Type::getInt32Ty(C), Type::getInt32Ty(C), NULL);
-		hookFuncMallocEvent = M.getOrInsertFunction("recordMEvent", VoidTy, Type::getInt8PtrTy(C), Type::getInt64Ty(C),  Type::getInt32Ty(C),  Type::getInt32Ty(C), NULL);
+            	hookFunc1 = M.getOrInsertFunction("print1", VoidTy);
+            	hookFunc2 = M.getOrInsertFunction("print2", VoidTy);
+		hookFunc3 = M.getOrInsertFunction("print3", VoidTy, Type::getInt32Ty(C));
+		hookFunc4 = M.getOrInsertFunction("print4", VoidTy, Type::getInt64Ty(C));
+		hookFuncEA = M.getOrInsertFunction("printea", VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C));
+		hookFuncRetMain = M.getOrInsertFunction("RetMain", VoidTy);
+		hookFuncString = M.getOrInsertFunction("takeString", VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C));
+		hookFuncFCall = M.getOrInsertFunction("callFunc", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C), Type::getInt32Ty(C), Type::getInt32Ty(C));
+		hookFuncMallocEvent = M.getOrInsertFunction("recordMEvent", VoidTy, Type::getInt8PtrTy(C), Type::getInt64Ty(C),  Type::getInt32Ty(C),  Type::getInt32Ty(C));
 
 //		Type::getFloatTy(M.getContext())  for float
 		hook1= cast<Function>(hookFunc1); hook2= cast<Function>(hookFunc2); hook3= cast<Function>(hookFunc3); 
@@ -467,13 +467,13 @@ namespace{
 		Constant *hookFuncString;
 
 //            	hookFunc1 = M.getOrInsertFunction(AF[0], VoidTy, (Type*)0);
-		hookFunc1 = M.getOrInsertFunction(AF[0], VoidTy, Type::getInt32Ty(C),  NULL);
-            	hookFunc2 = M.getOrInsertFunction(AF[1], VoidTy, (Type*)0);
-		hookFunc3 = M.getOrInsertFunction(AF[2], VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C),  NULL);
+		hookFunc1 = M.getOrInsertFunction(AF[0], VoidTy, Type::getInt32Ty(C));
+            	hookFunc2 = M.getOrInsertFunction(AF[1], VoidTy);
+		hookFunc3 = M.getOrInsertFunction(AF[2], VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C));
 //		hookFunc4 = M.getOrInsertFunction("print4", VoidTy, Type::getInt64Ty(C),  NULL);
-		hookFunc5 = M.getOrInsertFunction(AF[3], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C),  Type::getInt32Ty(C),  Type::getInt32Ty(C), Type::getInt32Ty(C), Type::getInt8PtrTy(C), NULL);
+		hookFunc5 = M.getOrInsertFunction(AF[3], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C),  Type::getInt32Ty(C),  Type::getInt32Ty(C), Type::getInt32Ty(C), Type::getInt8PtrTy(C));
 //		hookFuncMain = M.getOrInsertFunction("fini", VoidTy, (Type*)0 );
-		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
+		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C));
 //		Type::getFloatTy(M.getContext())  for float
 		hook1= cast<Function>(hookFunc1); hook2= cast<Function>(hookFunc2); hook3= cast<Function>(hookFunc3); 
 //		hook4= cast<Function>(hookFunc4); 
@@ -721,11 +721,11 @@ namespace{
 		Constant* hookFuncInit;
 		Constant* hookFuncString;
 
-		hookFunc1 = M.getOrInsertFunction(AF[0], VoidTy, Type::getInt32Ty(C),  NULL);
-            	hookFunc2 = M.getOrInsertFunction(AF[1], VoidTy, (Type*)0);
-		hookFunc3 = M.getOrInsertFunction(AF[2], VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C),  NULL);
-		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
-		hookFuncBB = M.getOrInsertFunction("passBasicBlock", VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C),Type::getInt32Ty(C),Type::getInt32Ty(C), Type::getInt8PtrTy(C),  NULL);
+		hookFunc1 = M.getOrInsertFunction(AF[0], VoidTy, Type::getInt32Ty(C));
+            	hookFunc2 = M.getOrInsertFunction(AF[1], VoidTy);
+		hookFunc3 = M.getOrInsertFunction(AF[2], VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C));
+		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C));
+		hookFuncBB = M.getOrInsertFunction("passBasicBlock", VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C),Type::getInt32Ty(C),Type::getInt32Ty(C), Type::getInt8PtrTy(C));
 		//hookFuncBB = M.getOrInsertFunction("passBasicBlock", VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C),Type::getInt32Ty(C),Type::getInt32Ty(C), Type::getInt8PtrTy(C),  NULL);
 		hook1= cast<Function>(hookFunc1); 
 		hook2= cast<Function>(hookFunc2); 
@@ -948,8 +948,8 @@ namespace{
 		Constant* hookFuncFCall;
 		Constant* hookFuncString;
 
-		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
-		hookFuncFCall = M.getOrInsertFunction("callFunc", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C), Type::getInt32Ty(C),Type::getInt32Ty(C), Type::getInt8PtrTy(C), NULL);
+		hookFuncString = M.getOrInsertFunction(AF[4], VoidTy, Type::getInt8PtrTy(C), Type::getInt32Ty(C));
+		hookFuncFCall = M.getOrInsertFunction("callFunc", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C), Type::getInt32Ty(C),Type::getInt32Ty(C), Type::getInt8PtrTy(C));
                 hookFCall = cast<Function>(hookFuncFCall);
 		hookString = cast<Function> (hookFuncString);
 
@@ -1737,14 +1737,14 @@ namespace{
 
 		Constant* hookFuncCudaSync;
 		Function* hookCudaSync;
-		hookFuncCudaSync = M.getOrInsertFunction("cudaDeviceSynchronize", Type::getInt32Ty(C),NULL);
-                hookFuncAppendTrace = M.getOrInsertFunction("appendTrace", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C), NULL);
-		hookFuncGetHandle = M.getOrInsertFunction("getHandle", Type::getInt8PtrTy(C), Type::getInt32Ty(C), NULL);
-		hookFuncGridDims = M.getOrInsertFunction("gridDims", VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C), Type::getInt32Ty(C), NULL);
-		hookFuncGridReset = M.getOrInsertFunction("gridReset", VoidTy, NULL);
-		hookFuncGridGet = M.getOrInsertFunction("gridGet", Type::getInt64Ty(C), NULL);
-		hookAPI_malloc = M.getOrInsertFunction("malloc", Type::getInt8PtrTy(C), Type::getInt64Ty(C), NULL);
-		hookAPI_free = M.getOrInsertFunction("free", VoidTy, Type::getInt8PtrTy(C), NULL);
+		hookFuncCudaSync = M.getOrInsertFunction("cudaDeviceSynchronize", Type::getInt32Ty(C));
+                hookFuncAppendTrace = M.getOrInsertFunction("appendTrace", VoidTy, Type::getInt8PtrTy(C), Type::getInt8PtrTy(C));
+		hookFuncGetHandle = M.getOrInsertFunction("getHandle", Type::getInt8PtrTy(C), Type::getInt32Ty(C));
+		hookFuncGridDims = M.getOrInsertFunction("gridDims", VoidTy, Type::getInt32Ty(C), Type::getInt32Ty(C), Type::getInt32Ty(C));
+		hookFuncGridReset = M.getOrInsertFunction("gridReset", VoidTy);
+		hookFuncGridGet = M.getOrInsertFunction("gridGet", Type::getInt64Ty(C));
+		hookAPI_malloc = M.getOrInsertFunction("malloc", Type::getInt8PtrTy(C), Type::getInt64Ty(C));
+		hookAPI_free = M.getOrInsertFunction("free", VoidTy, Type::getInt8PtrTy(C));
 
 		hookGridDims = cast<Function>(hookFuncGridDims);
 		hookGridReset = cast<Function>(hookFuncGridReset);
@@ -2564,8 +2564,8 @@ namespace{
 		Constant* hookFuncRet;
 		Constant* hookFuncInit;
 
-            	hookFuncRet = M.getOrInsertFunction(AF[5], VoidTy, Type::getInt8PtrTy(C), (Type*)0);
-		hookFuncInit = M.getOrInsertFunction("InitKernel", Type::getInt8PtrTy(C),  Type::getInt8PtrTy(C), NULL);
+            	hookFuncRet = M.getOrInsertFunction(AF[5], VoidTy, Type::getInt8PtrTy(C));
+		hookFuncInit = M.getOrInsertFunction("InitKernel", Type::getInt8PtrTy(C),  Type::getInt8PtrTy(C));
                 hookRet = cast<Function>(hookFuncRet);
                 hookInit = cast<Function>(hookFuncInit);
 
@@ -2775,8 +2775,8 @@ namespace{
 		Constant* hookFuncCudaSync;
 		Constant* hookFuncMeasure;
 	
-		hookFuncCudaSync = M.getOrInsertFunction("cudaDeviceSynchronize", Type::getInt32Ty(C), NULL);
-		hookFuncMeasure = M.getOrInsertFunction("measureKernel", VoidTy, Type::getInt32Ty(C), NULL);
+		hookFuncCudaSync = M.getOrInsertFunction("cudaDeviceSynchronize", Type::getInt32Ty(C));
+		hookFuncMeasure = M.getOrInsertFunction("measureKernel", VoidTy, Type::getInt32Ty(C));
 
 //// auto-detect CUDA kernels on host side 
 		Function* fcrf = M.getFunction("__cuda_register_globals");
