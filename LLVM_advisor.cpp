@@ -1390,7 +1390,7 @@ namespace{
 
                         SmallVector<ReturnInst*, 8> Returns;  // Ignore returns cloned.
                         ClonedCodeInfo *codeinfo = nullptr;
-                        CloneFunctionInto(fc, &(*F) , VMap, false, Returns, "", codeinfo);
+                        CloneFunctionInto(fc, &(*F) , VMap, true, Returns, "", codeinfo);
 		
 		/////
 		/////
@@ -1547,7 +1547,7 @@ namespace{
 
 			SmallVector<ReturnInst*, 8> Returns;  // Ignore returns cloned.
 			ClonedCodeInfo *codeinfo = nullptr;
-			CloneFunctionInto(fc, &(*F) , VMap, false, Returns, "", codeinfo);
+			CloneFunctionInto(fc, &(*F) , VMap, true, Returns, "", codeinfo);
             	}
 
 
@@ -1859,7 +1859,7 @@ namespace{
 			SmallVector<ReturnInst*, 8> Returns;  // Ignore returns cloned.
 			ClonedCodeInfo *codeinfo = nullptr;
 			//CloneFunctionInto(fc, &(*F) , VMap, false, Returns);//bitcode compile error
-			CloneFunctionInto(fc, &(*F) , VMap, false , Returns, "", codeinfo); //TODO
+			CloneFunctionInto(fc, &(*F) , VMap, true , Returns, "", codeinfo); //TODO
             	}
 
 
